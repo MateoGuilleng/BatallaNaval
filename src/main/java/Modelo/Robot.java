@@ -1,21 +1,21 @@
 package Modelo;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
-public class Jugador {
+public class Robot {
     private String nombre;
     private Map<TipoMisil, Integer> misiles;
 
-    public Jugador(String nombre) {
+    public Robot(String nombre) {
         this.nombre = nombre;
         this.misiles = new HashMap<>();
-
-        // Inicializar el mapa de misiles con cantidades predeterminadas
+        
         misiles.put(TipoMisil.BASICO, 10);
         misiles.put(TipoMisil.CRUZ, 1);
         misiles.put(TipoMisil.BOMBARDEO, 1);
         misiles.put(TipoMisil.NUCLEAR, 1);
+
     }
 
     public String getNombre() {
@@ -27,12 +27,13 @@ public class Jugador {
     }
 
     public void agregarMisil(TipoMisil tipoMisil) {
-
         int cantidadActual = misiles.getOrDefault(tipoMisil, 0);
         misiles.put(tipoMisil, cantidadActual + 1);
-
         System.out.println("Misil " + tipoMisil + " agregado a " + nombre);
+    }
 
+    public int getNumeroMisiles(TipoMisil tipoMisil) {
+        return misiles.getOrDefault(tipoMisil, 0);
     }
 
     public void restarMisil(TipoMisil tipoMisil) {
@@ -43,9 +44,5 @@ public class Jugador {
         } else {
             System.out.println("No hay misiles " + tipoMisil + " disponibles para restar a " + nombre);
         }
-    }
-
-    public int getNumeroMisiles(TipoMisil tipoMisil) {
-        return misiles.getOrDefault(tipoMisil, 0);
     }
 }

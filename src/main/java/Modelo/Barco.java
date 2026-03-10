@@ -4,7 +4,7 @@ public class Barco {
     private int tamaño;
     private boolean horizontal;
 
-    private int CasillasHundidas;
+    private int casillasHundidas;
 
     public Barco(int tamaño, boolean horizontal) {
         this.tamaño = tamaño;
@@ -24,20 +24,15 @@ public class Barco {
     }
 
     public boolean isHundido() {
-        return CasillasHundidas >= tamaño;
+        return casillasHundidas >= tamaño;
     }
 
     public int getCasillasHundidas() {
-        return CasillasHundidas;
+        return casillasHundidas;
     }
 
-    public void setCasillasHundidas(int CasillasHundidas) {
-        this.CasillasHundidas = CasillasHundidas;
-    }
-    
     public void registrarImpacto() {
-        CasillasHundidas++;
+        casillasHundidas++;
     }
-    
 
 }
