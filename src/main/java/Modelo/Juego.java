@@ -44,24 +44,24 @@ public class Juego {
 
         if (tipoMisil == TipoMisil.BASICO) {
             ResultadoDisparo resultadoDisparo = tableroRobot.dispararSimple(x, y);
-            accionPorCasilla(resultadoDisparo.getTipoCasilla());
+            accionPorCasilla(resultadoDisparo.getTipoCasilla(), x, y);
             jugador.restarMisil(tipoMisil);
         } else if (tipoMisil == TipoMisil.CRUZ) {
             ResultadoAtaque resultadoAtaque = tableroRobot.dispararCruz(x, y);
             for (ResultadoDisparo resultado : resultadoAtaque.getResultados()) {
-                accionPorCasilla(resultado.getTipoCasilla());
+                accionPorCasilla(resultado.getTipoCasilla(), resultado.getX(), resultado.getY());
             }
             jugador.restarMisil(tipoMisil);
         } else if (tipoMisil == TipoMisil.BOMBARDEO) {
             ResultadoAtaque resultadoAtaque = tableroRobot.dispararBombardeo(x, y);
             for (ResultadoDisparo resultado : resultadoAtaque.getResultados()) {
-                accionPorCasilla(resultado.getTipoCasilla());
+                accionPorCasilla(resultado.getTipoCasilla(), resultado.getX(), resultado.getY());
             }
             jugador.restarMisil(tipoMisil);
         } else if (tipoMisil == TipoMisil.NUCLEAR) {
             ResultadoAtaque resultadoAtaque = tableroRobot.dispararNuclear(x, y);
             for (ResultadoDisparo resultado : resultadoAtaque.getResultados()) {
-                accionPorCasilla(resultado.getTipoCasilla());
+                accionPorCasilla(resultado.getTipoCasilla(), resultado.getX(), resultado.getY());
             }
             jugador.restarMisil(tipoMisil);
         }
@@ -80,28 +80,29 @@ public class Juego {
 
         if (tipoMisilADisparar == TipoMisil.BASICO) {
             ResultadoDisparo resultadoDisparo = tableroRobot.dispararSimple(x, y);
-            accionPorCasilla(resultadoDisparo.getTipoCasilla());
+            accionPorCasilla(resultadoDisparo.getTipoCasilla(), x, y);
         } else if (tipoMisilADisparar == TipoMisil.CRUZ) {
             ResultadoAtaque resultadoAtaque = tableroRobot.dispararCruz(x, y);
             for (ResultadoDisparo resultado : resultadoAtaque.getResultados()) {
-                accionPorCasilla(resultado.getTipoCasilla());
+                accionPorCasilla(resultado.getTipoCasilla(), resultado.getX(), resultado.getY());
             }
         } else if (tipoMisilADisparar == TipoMisil.BOMBARDEO) {
             ResultadoAtaque resultadoAtaque = tableroRobot.dispararBombardeo(x, y);
             for (ResultadoDisparo resultado : resultadoAtaque.getResultados()) {
-                accionPorCasilla(resultado.getTipoCasilla());
+                accionPorCasilla(resultado.getTipoCasilla(), resultado.getX(), resultado.getY());
             }
         } else if (tipoMisilADisparar == TipoMisil.NUCLEAR) {
             ResultadoAtaque resultadoAtaque = tableroRobot.dispararNuclear(x, y);
             for (ResultadoDisparo resultado : resultadoAtaque.getResultados()) {
-                accionPorCasilla(resultado.getTipoCasilla());
+                accionPorCasilla(resultado.getTipoCasilla(), resultado.getX(), resultado.getY());
             }
 
         }
     }
 
-    public void accionPorCasilla(TipoCasilla tipoCasillaDisparada) { // Ejecutara cierta accion dependiento de la
-                                                                     // casilla encontrada
+    public void accionPorCasilla(TipoCasilla tipoCasillaDisparada, int x, int y) { // Ejecutara cierta accion
+                                                                                   // dependiento de la
+        // casilla encontrada
 
         if (tipoCasillaDisparada == TipoCasilla.BARCO) {
             System.out.println("¡Tocado!");
@@ -109,6 +110,20 @@ public class Juego {
         } else if (tipoCasillaDisparada == TipoCasilla.BOMBA) {
 
             System.out.println("¡Misil encontrado!");
+
+            if (turnoJugador) {
+                CasillaMisil casillaMisil = tableroRobot.getCasillaMisil(x, y);
+                if (casillaMisil != null && !casillaMisil.isEncontrada()) {
+                    jugador.agregarMisil(casillaMisil.getTipoMisil());
+                    casillaMisil.setEncontrada(true);
+                }
+            } else {
+                CasillaMisil casillaMisil = tableroJuador.getCasillaMisil(x, y);
+                if (casillaMisil != null && !casillaMisil.isEncontrada()) {
+                    robot.agregarMisil(casillaMisil.getTipoMisil());
+                    casillaMisil.setEncontrada(true);
+                }
+            }
         }
 
         else {

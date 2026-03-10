@@ -20,6 +20,9 @@ public class Tablero {
     public Casilla getCasilla(int x, int y) {
         return casillas[x][y];
     }
+    public CasillaMisil getCasillaMisil(int x, int y) {
+        return casillasMisil[x][y];
+    }
 
     public void colocarBarco(Barco barco, int x, int y) {
         int tamaño = barco.getTamaño();

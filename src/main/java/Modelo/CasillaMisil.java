@@ -4,13 +4,13 @@ public class CasillaMisil {
     private int x;
     private int y;
     private TipoMisil tipo;
-    private boolean disparada;
+    private boolean encontrada;
 
-    public CasillaMisil(int x, int y, TipoMisil tipo, boolean disparada) {
+    public CasillaMisil(int x, int y, TipoMisil tipo, boolean encontrada) {
         this.x = x;
         this.y = y;
         this.tipo = tipo;
-        this.disparada = disparada;
+        this.encontrada = encontrada;
     }
 
     public int getX() {
@@ -21,7 +21,11 @@ public class CasillaMisil {
         return y;
     }
 
-    public TipoMisil getTipo() {
+    public boolean isEncontrada() {
+        return encontrada;
+    }
+
+    public TipoMisil getTipoMisil() {
         return tipo;
     }
 
@@ -29,11 +33,7 @@ public class CasillaMisil {
         this.tipo = tipo;
     }
 
-    public boolean isDisparada() {
-        return disparada;
-    }
-
-    public void setDisparada(boolean disparada) {
-        this.disparada = disparada;
+    public void setEncontrada(boolean encontrada) {
+        this.encontrada = encontrada;
     }
 }

@@ -71,16 +71,5 @@ Cosas por hacer en el codigo
 
 Antes de pasar a hacer la parte grafica y el controlador debemos definir bien los modelos, a continuacion algunas anotaciones
 
-### La clase juego deberia controlar: (LISTO)
-- turnos
-- jugador
-- robot
-- fin e inicio del juego
+### Agregar los barcos al tablero
 
-### Donde deberia estar la lista de barcos? (LISTO)
-
-para tener un control de cuando se gana, en teoria lo deberia tener la clase Tablero
-
-### Tanto el robot como el jugador deberian tener tablero (LISTO)
-
-### Crear la clase robot (LISTO)
