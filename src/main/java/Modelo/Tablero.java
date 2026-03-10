@@ -55,6 +55,11 @@ public class Tablero {
 
             TipoMisil tipoMisilACrear = tipoMisiles[indiceAleatorio];
 
+            if (casillas[x][y].getTipo() == TipoCasilla.BARCO || casillas[x][y].getTipo() == TipoCasilla.BOMBA) {
+                i--; // Decrementar i para intentar generar otro misil en una posición válida
+                continue; // Saltar a la siguiente iteración del bucle
+            }
+
             casillasMisil[x][y] = new CasillaMisil(x, y, tipoMisilACrear, false);
         }
     }
