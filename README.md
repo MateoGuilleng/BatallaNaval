@@ -71,5 +71,7 @@ Cosas por hacer en el codigo
 
 Antes de pasar a hacer la parte grafica y el controlador debemos definir bien los modelos, a continuacion algunas anotaciones
 
-### Agregar los barcos al tablero (LISTO)
+### Crear validaciones a la hora de crear misiles y dispararlos
+
+El sistema tiene que verificar que a la hora de poner los 5 misiles en el mapa, no coincida con una casilla de tipo barco, ademas tener en cuenta quie cuando se dispara por ejemplo un misil de tipo cruz en (0,0) solo se van a descubrir las casillas (0,0) (0,1)  (1,0) las otras 2 no porque se salen del mapa
 
