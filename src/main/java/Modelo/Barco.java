@@ -23,7 +23,7 @@ public class Barco {
         this.tamaño = tamaño;
     }
 
-    public boolean isHundido() {
+    public boolean isHundidoCompletamente() {
         return casillasHundidas >= tamaño;
     }
 

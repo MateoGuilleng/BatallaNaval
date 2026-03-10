@@ -1,15 +1,18 @@
 package Modelo;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.ArrayList;
+
 
 public class Tablero {
     private Casilla[][] casillas;
     private CasillaMisil[][] casillasMisil;
-    private Barco[] barcos;
+    private ArrayList<Barco> barcos;
 
     public Tablero(int filas, int columnas) {
         casillas = new Casilla[filas][columnas];
         casillasMisil = new CasillaMisil[filas][columnas];
+        barcos = new ArrayList<>();
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 casillas[i][j] = new Casilla(i, j, TipoCasilla.AGUA, false, null);
@@ -25,6 +28,7 @@ public class Tablero {
     }
 
     public void colocarBarco(Barco barco, int x, int y) {
+        barcos.add(barco);
         int tamaño = barco.getTamaño();
         boolean horizontal = barco.isHorizontal();
 
@@ -123,7 +127,7 @@ public class Tablero {
 
     public boolean todosBarcosHundidos() {
         for (Barco barco : barcos) {
-            if (!barco.isHundido()) {
+            if (!barco.isHundidoCompletamente()) {
                 return false;
             }
         }

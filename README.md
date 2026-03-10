@@ -71,5 +71,5 @@ Cosas por hacer en el codigo
 
 Antes de pasar a hacer la parte grafica y el controlador debemos definir bien los modelos, a continuacion algunas anotaciones
 
-### Agregar los barcos al tablero
+### Agregar los barcos al tablero (LISTO)
 
