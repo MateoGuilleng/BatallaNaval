@@ -34,5 +34,10 @@ public class Barco {
     public void setCasillasHundidas(int CasillasHundidas) {
         this.CasillasHundidas = CasillasHundidas;
     }
+    
+    public void registrarImpacto() {
+        CasillasHundidas++;
+    }
+    
 
 }

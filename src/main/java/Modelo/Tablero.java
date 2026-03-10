@@ -33,15 +33,20 @@ public class Tablero {
 
     public void disparar(int x, int y) {
         Casilla casilla = getCasilla(x, y);
-        if (casilla.getTipo() == TipoCasilla.BARCO) {
-            casilla.setTipo(TipoCasilla.HUNDIDO);
+        if (!casilla.isDisparada()) {
+            if (casilla.getTipo() == TipoCasilla.BARCO) {
+                casilla.setTipo(TipoCasilla.HUNDIDO);
+                casilla.setDisparada(true);
+                casilla.getBarco().registrarImpacto();
+                if (casilla.getBarco().isHundido()) {
+                    System.out.println("¡Hundido!");
+                }
+            } else {
+                System.out.println("Agua...");
+            }
 
-            System.out.println("¡Tocado!");
-        } else {
-            System.out.println("Agua...");
+            casilla.setDisparada(true);
         }
-
-        casilla.setDisparada(true);
 
     }
 }
