@@ -67,5 +67,4 @@
 
 # Que falta por hacer
 
-Pulir detalles del modelo, podriamos pasar a crear los controladores
-
+Todo :v
