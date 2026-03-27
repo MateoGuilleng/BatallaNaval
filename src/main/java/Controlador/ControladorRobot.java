@@ -63,7 +63,6 @@ public class ControladorRobot {
                 onFinish.run();
             });
         });
-        hilo.setDaemon(true);
         hilo.start();
     }
 

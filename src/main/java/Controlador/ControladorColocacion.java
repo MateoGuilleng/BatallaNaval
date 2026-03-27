@@ -44,7 +44,6 @@ public class ControladorColocacion implements ActionListener {
                 vista.setMensaje("Haz clic en un barco para seleccionarlo, luego clic en el destino.");
             });
         });
-        hilo.setDaemon(true);
         hilo.start();
     }
 
